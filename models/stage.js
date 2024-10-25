@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+        Stage.hasMany(models.SetTime, { foreignKey: 'stage_id' });
+        Stage.hasMany(models.StageEvent, { foreignKey: 'stage_id' });
     }
   }
   Stage.init({

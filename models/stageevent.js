@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+        StageEvent.belongsTo(models.Stage, { foreignKey: 'stage_id' });
+        StageEvent.belongsTo(models.Event, { foreignKey: 'event_id' });
     }
   };
   StageEvent.init({
